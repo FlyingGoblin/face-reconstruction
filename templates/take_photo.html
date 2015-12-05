@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block extra_head %}
+    <script src="/static/js/takePhoto.js"></script>
+    <link rel="stylesheet" href="/static/css/takePhoto.css" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <div id="environment">
+        <div id="light"></div>
+        <div id="contentHolder">
+            <video id="video" width="640" height="480" autoplay style="display: none"></video>
+            <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
+        </div>
+    </div>
+    <div id="images-continer">
+    <div class="row"></div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

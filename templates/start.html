@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block extra_head %}
+    <link rel="stylesheet" href="/static/css/start.css" type="text/css">
+    <script src="/static/js/start.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>人脸三维重建</h1>
+        <video id="video" autoplay></video>
+        <div class="notify">
+            <code>拍照注意</code>
+            <ol>
+                <li>关闭室内所有灯光</li>
+                <li>把电脑屏幕调到最亮</li>
+                <li>最大化浏览器窗口</li>
+                <li>拍照开始后一直到拍照结束保持头部不动</li>
+            </ol>
+        </div>
+        <a href="{{ url_for('take_photo') }}" id="start" type="button" class="btn btn-info btn-lg">开始拍照</a>
+    </div>
+{% endblock %}

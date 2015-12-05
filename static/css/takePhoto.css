@@ -1,0 +1,15 @@
+body{
+    overflow: hidden;
+}
+
+#environment {
+    background-color: #000000;
+    overflow: hidden;
+}
+
+#light {
+    background-color: #ffffff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
