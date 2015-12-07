@@ -13,3 +13,11 @@ body{
     top: 0px;
     left: 0px;
 }
+
+#get-permition{
+    display: inline;
+    z-index: 3;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}

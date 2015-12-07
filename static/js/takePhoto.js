@@ -1,4 +1,5 @@
 var canvas, context, video;
+var photo_timer;
 $(document).ready(function () {
     $("#environment").width(window.screen.availWidth);
     $("#environment").height(window.screen.availHeight);
@@ -6,10 +7,17 @@ $(document).ready(function () {
     $("#light").height(Math.floor(window.screen.availHeight / 2));
     video = videoStart();
     canvas = $("#canvas")[0];
-    context = canvas.getContext("2d")
+    context = canvas.getContext("2d");
+    //$('#myModal').on('shown.bs.modal', function () {});
+    $("#sure-button").click(function(){
+        $("#get-permition").hide(500);
+        setTimeout(function(){
+            $("#light").show();
+            photo_timer = setInterval('takePhoto()', 500);
+        },500);
+    });
 })
 
-var photo_timer = setInterval('takePhoto()', 500);
 var step = 0;
 var top_position = [0, 0, 1, 1];
 var left_position = [0, 1, 1, 0];
@@ -22,9 +30,6 @@ function takePhoto() {
         $("body").css("overflow","visible");
         return;
     }
-
-    $("#light").css("top", Math.floor(window.screen.availHeight / 2) * top_position[step]);
-    $("#light").css("left", Math.floor(window.screen.availWidth / 2) * left_position[step]);
     context.drawImage(video, 0, 0, 640, 480);
 
     var col = $("<div class='col-md-6'>");
@@ -43,4 +48,7 @@ function takePhoto() {
     image_unit.append(download_div);
     download_div.append(download_button);
     $("#images-continer .row").append(col);
+
+    $("#light").css("top", Math.floor(window.screen.availHeight / 2) * top_position[step]);
+    $("#light").css("left", Math.floor(window.screen.availWidth / 2) * left_position[step]);
 }
